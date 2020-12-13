@@ -1,8 +1,6 @@
 package basicproject;
 
 import org.testng.annotations.Test;
-import org.testng.annotations.Test;
-
 import pages.ParticeFormTC001;
 
 public class TestCase01 {
