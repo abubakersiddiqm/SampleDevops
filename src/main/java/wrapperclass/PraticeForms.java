@@ -57,4 +57,9 @@ public class PraticeForms implements BasicStepup{
 	public void closeBrowser() {
 		driver.quit();
 	}
+
+	@Override
+	public String getTextValue(WebElement ele,String textValue) {
+		return ele.getText();
+	}
 }
