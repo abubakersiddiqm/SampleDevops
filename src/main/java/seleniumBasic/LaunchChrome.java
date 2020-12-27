@@ -12,6 +12,8 @@ public class LaunchChrome {
 		WebDriverManager.chromedriver().setup();
 		ChromeDriver driver=new ChromeDriver();
 		driver.get("https://www.google.com");
+		String currentURL=driver.getCurrentUrl();
+		System.out.println(currentURL);
 		Thread.sleep(30000);
 		driver.close();
 			//https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver	

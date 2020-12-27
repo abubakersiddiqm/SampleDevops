@@ -1,21 +1,19 @@
 package testNgpratice;
 
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class Priority {
+public class Groups {
 	
-	@Test
+	@Test(groups = "smoke")
 	public void TestCase1() {
 		System.out.println("testcase 1");
 	}
 
-	@Test(priority = 2,timeOut = 1000)
-	public void testCase2() throws InterruptedException {
-		Thread.sleep(2000);
+	@Test(groups = "sainty")
+	public void testCase2() {
 		System.out.println("Testcase 2");
 	}
-	@Test(priority = 1,invocationCount = 2)
+	@Test(groups = "Regression")
 	public void login() {
 		System.out.println("login");
 	}
