@@ -1,18 +1,16 @@
 package testNgpratice;
 
-import com.google.common.base.Verify;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import org.testng.asserts.SoftAssert;
 
-import java.time.Clock;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -74,14 +72,15 @@ public class TravelSite {
 		}
 		wait.until(ExpectedConditions.urlMatches("https://www.phptravels.net/home"));
 		String homePageUrl = driver.getCurrentUrl();
-		Assert.assertEquals(homePageUrl, "https://www.phptravels.net/home");
+		//Assert.assertEquals(homePageUrl, "https://www.phptravels.net/home");
 	}
 
-	WebElement logOut;
+	WebElement logOut,clickMyAccount;
 
 	@AfterMethod
 	public void logOut() throws InterruptedException {
-		myAccount.click();
+		clickMyAccount=driver.findElement(By.cssSelector("div.mini-menu>ul>li:nth-child(3)"));
+		clickMyAccount.click();
 		logOut = driver.findElement(By.xpath("//a[contains(text(),'Logout')]"));
 		wait.until(ExpectedConditions.visibilityOf(logOut));
 		logOut.click();
